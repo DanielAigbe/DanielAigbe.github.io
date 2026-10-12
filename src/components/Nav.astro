@@ -15,9 +15,7 @@ const links = [
   </a>
   <div class="links">
     {links.map((l) => (
-      <a href={l.href} class:list={{ on: current === l.label }}>
-        <span class="n">{l.n}</span>{l.label}
-      </a>
+      <a href={l.href} class:list={{ on: current === l.label }}>{l.label}</a>
     ))}
   </div>
   <a class="btn-line cta" href="/contact/">Start a project</a>
