@@ -13,8 +13,8 @@
   --crimson: #c8102e;
 
   --font-display: 'Unbounded', system-ui, sans-serif; /* swap here to change the display font */
-  --font-body: 'Space Grotesk', system-ui, sans-serif;
-  --font-mono: 'Space Mono', ui-monospace, monospace;
+  --font-body: 'Onest', system-ui, sans-serif;
+  --font-mono: 'Public Sans', system-ui, sans-serif; /* small labels and tags */
 
   --gutter: clamp(20px, 8.3vw, 120px);
   --edge: clamp(20px, 4.4vw, 64px);
