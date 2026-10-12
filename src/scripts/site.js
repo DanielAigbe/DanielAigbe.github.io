@@ -2,6 +2,11 @@
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 document.documentElement.classList.add('js');
 
+// Links to other websites open in a new tab, so visitors keep the portfolio open.
+document.querySelectorAll('a[href^="http"]').forEach((a) => {
+  if (a.host !== location.host) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+});
+
 // Reveal on scroll
 const revealEls = document.querySelectorAll('.reveal');
 if (reduce || !('IntersectionObserver' in window)) {
