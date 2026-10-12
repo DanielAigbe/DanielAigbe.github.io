@@ -8,7 +8,7 @@ const links = [
   { n: '04', label: 'Contact', href: '/contact/' },
 ];
 ---
-<nav class="nav" aria-label="Main">
+<nav class="nav" aria-label="Main" data-nav>
   <a class="brand" href="/">
     <img src="/images/mark.webp" alt="" width="47" height="38" />
     <span>UI_RONIN</span>
@@ -21,7 +21,43 @@ const links = [
     ))}
   </div>
   <a class="btn-line cta" href="/contact/">Start a project</a>
+
+  <!-- Mobile: menu button and full-screen menu -->
+  <button class="toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-nav-toggle>
+    <i></i><i></i>
+  </button>
+  <div class="sheet" id="mobile-menu" data-nav-sheet hidden>
+    <div class="sheet-links">
+      {links.map((l) => (
+        <a href={l.href} class:list={{ on: current === l.label }}>
+          <span class="n">{l.n}</span>{l.label}
+        </a>
+      ))}
+    </div>
+    <a class="btn" href="/contact/">Start a project</a>
+  </div>
 </nav>
+
+<script>
+  // Opens and closes the mobile menu. Closes on link tap, on Escape, and when the screen gets wide again.
+  document.querySelectorAll<HTMLElement>('[data-nav]').forEach((nav) => {
+    const btn = nav.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+    const sheet = nav.querySelector<HTMLElement>('[data-nav-sheet]');
+    if (!btn || !sheet) return;
+    const set = (open: boolean) => {
+      nav.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      document.documentElement.style.overflow = open ? 'hidden' : '';
+      if (open) { sheet.hidden = false; requestAnimationFrame(() => sheet.classList.add('in')); }
+      else { sheet.classList.remove('in'); setTimeout(() => { if (!nav.classList.contains('open')) sheet.hidden = true; }, 300); }
+    };
+    btn.addEventListener('click', () => set(!nav.classList.contains('open')));
+    sheet.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => set(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && nav.classList.contains('open')) { set(false); btn.focus(); } });
+    window.matchMedia('(min-width: 821px)').addEventListener('change', (m) => { if (m.matches) set(false); });
+  });
+</script>
 
 <style>
   .nav {
@@ -33,16 +69,63 @@ const links = [
     position: relative;
     z-index: 5;
   }
-  .brand { display: flex; align-items: center; gap: 14px; }
+  .nav.open { z-index: 70; }
+  .brand { display: flex; align-items: center; gap: 14px; position: relative; z-index: 2; }
   .brand img { width: 47px; height: auto; }
   .brand span { font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.1em; }
   .links { display: flex; gap: clamp(16px, 3vw, 40px); font-size: 15px; font-weight: 500; }
   .links a { padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 0.2s ease; }
   .links a:hover, .links a.on { border-color: var(--crimson); }
   .n { font-family: var(--font-mono); font-size: 11px; color: var(--stone); margin-right: 6px; }
+
+  /* Menu button: two lines that turn into an X */
+  .toggle { display: none; position: relative; z-index: 2; width: 44px; height: 44px; padding: 0; background: none; border: 1px solid var(--line-strong); cursor: pointer; }
+  .toggle i { position: absolute; left: 11px; right: 11px; height: 1.5px; background: var(--washi); transition: transform 0.3s ease, top 0.3s ease; }
+  .toggle i:first-child { top: 17px; }
+  .toggle i:last-child { top: 25px; }
+  .open .toggle { border-color: var(--crimson); }
+  .open .toggle i:first-child { top: 21px; transform: rotate(45deg); }
+  .open .toggle i:last-child { top: 21px; transform: rotate(-45deg); }
+
+  /* Full-screen menu */
+  .sheet {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 120px var(--edge) 48px;
+    background: radial-gradient(120% 60% at 100% 0%, rgba(200, 16, 46, 0.22), rgba(7, 7, 7, 0) 60%), var(--ink);
+    opacity: 0;
+    transform: translateY(-12px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .sheet.in { opacity: 1; transform: none; }
+  .sheet[hidden] { display: none; }
+  .sheet-links { display: flex; flex-direction: column; }
+  .sheet-links a {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(30px, 9vw, 44px);
+    line-height: 1.1;
+  }
+  .sheet-links a.on { color: var(--crimson); }
+  .sheet-links .n { font-size: 12px; margin: 0; }
+  .sheet .btn { align-self: flex-start; }
+
   @media (max-width: 820px) {
-    .nav { flex-wrap: wrap; padding: 20px var(--edge); }
-    .cta { display: none; }
-    .links { width: 100%; order: 3; justify-content: space-between; gap: 8px; font-size: 14px; }
+    .nav { padding: 20px var(--edge); }
+    .links, .cta { display: none; }
+    .toggle { display: block; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sheet, .toggle i { transition: none; }
   }
 </style>
