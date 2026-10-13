@@ -99,11 +99,14 @@ const services = [
           <SplineScene client:visible={{ rootMargin: "800px" }} bare scene="https://prod.spline.design/EGc3F3-90x4h996Z/scene.splinecode" alt="Mini keyboard with four keys, modelled in Spline" title="Mini keyboard" />
         </div>
       </div>
-      <div class="pieces">
-        <figure class="piece reveal">
-          <SplineScene client:visible={{ rootMargin: "800px" }} embed="https://my.spline.design/miniroomartcopy-Xw4r95YpXQcEPJgQKhwQHFdb/" alt="Miniature room, modelled in Spline" title="Mini room, interactive 3D scene" />
-          <figcaption><b>Mini room</b><span>SPLINE</span></figcaption>
-        </figure>
+      <div class="play-hero flip">
+        <div class="play-stage">
+          <SplineScene client:visible={{ rootMargin: "800px" }} bare scene="https://prod.spline.design/d30RvUfgmsMJgWVL/scene.splinecode" alt="Miniature workspace room, modelled in Spline" title="Mini room" />
+        </div>
+        <div class="play-copy reveal">
+          <p class="lede">A small corner of a workspace, built piece by piece. It's live too: move around it.</p>
+          <span class="play-tag">Mini room · Spline</span>
+        </div>
       </div>
     </section>
 
@@ -234,6 +237,7 @@ const services = [
   .play-copy .lede { max-width: 36ch; }
   .play-tag { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); }
   .play-stage { min-width: 0; }
+  .play-hero.flip { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); }
   .play-stage :global(.spline.bare) { aspect-ratio: 1 / 1; max-height: 80vh; }
   /* One scene per row, so each is big enough to play with. */
   .pieces { display: grid; grid-template-columns: 1fr; gap: 64px; }
@@ -277,7 +281,8 @@ const services = [
   .bg-glows i:nth-child(6) { left: -380px; bottom: -420px; width: 1300px; height: 1300px; --a: 0.32; }
 
   @media (max-width: 820px) {
-    .play-hero { grid-template-columns: 1fr; }
+    .play-hero, .play-hero.flip { grid-template-columns: 1fr; }
+    .play-hero.flip .play-copy { order: -1; }
     .hero-logo { position: relative; right: auto; top: auto; width: 78%; margin: 8px auto -8%; order: 2; }
     .hero .slash { display: none; }
     .hero-copy { order: 3; padding-top: 0; }
