@@ -21,7 +21,7 @@ The brand needed an identity that felt as warm and confident as the food. The cl
 
 ## My role
 
-I built the full identity and wrote it up as a brand guide: the logo system and its usage rules, the colour palette, the typography, image guidelines, real-world applications and the menu designs. The colours are also set up as design tokens in Figma, from base values down to buttons, cards and tags.
+I built the full identity and wrote it up as a brand guide: the logo system and its usage rules, the colour palette, the typography, image guidelines, real-world applications and the menu designs. The colours are also set up as design tokens in Figma.
 
 I worked on it alone, from the first sketches to the finished guide, over a little more than a week.
 
@@ -39,7 +39,7 @@ The logo comes in three versions: the full lockup, the wordmark alone, and the c
 
 ![The three logo versions: icon, wordmark and full lockup, on maroon](/images/eflames/logo-system.webp)
 
-The guide sets clear space around the logo equal to the height of the "e", and a minimum size of 80px on screen and 25mm in print. The logo is drawn to stay legible on both light and dark backgrounds.
+The guide sets clear space around the logo equal to the height of the "e". The logo is drawn to stay legible on both light and dark backgrounds.
 
 ![The logo on a maroon sign and on a white sign](/images/eflames/signage.webp)
 
