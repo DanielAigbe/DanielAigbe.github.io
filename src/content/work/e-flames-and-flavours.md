@@ -27,9 +27,9 @@ I worked on it alone, from the first sketches to the finished guide, over a litt
 
 ## Key decisions
 
-- **Three values drive every choice: Real, Warm, Bold.** Real means honest Nigerian cooking with nothing dressed up. Warm means every touchpoint should feel like a welcome. Bold means the brand shows up with confidence, colour and heat. Each design choice below traces back to one of them.
+- **Three values drive every choice: Real, Warm, Bold.** Real means honest Nigerian cooking with nothing dressed up. Warm means every touchpoint should feel like a welcome. Bold means the brand shows up with confidence, colour and heat. Together they set the direction for the whole identity.
 - **A mascot built from the letter "e".** The "e" becomes a winking chef with a flame for a hat, so the name, the food and the personality sit in one mark. I started with several logo directions and got the client's feedback on what worked and what didn't, then combined the strongest parts. They liked the first mascot and asked for one tweak, and that tweak became the mascot used today.
-- **Colours named after the kitchen.** Chef Cream is the welcoming base, Flame Orange carries the heat and energy, and Maroon Red anchors the brand with richness. Naming them this way makes the palette easy for a non-designer to remember and use.
+- **Colours named after the kitchen.** Chef Cream is the welcoming base, Flame Orange carries the heat and energy, Maroon Red adds richness, and Ember Brown is the deep supporting tone. Naming them this way makes the palette easy to remember and use for a client working with the guide without a designer.
 
 ## The logo
 
@@ -62,7 +62,7 @@ The "e-" and "& Flavours" in the wordmark are custom lettering drawn for the bra
 
 ## In use
 
-The guide shows the identity on restaurant signage, a takeaway food box, a takeaway bag, and a staff apron and cap. It also sets three rules for photography: the food is the hero, the colours stay warm, and people are shown sharing the meal.
+The guide shows the identity across the places people will meet it: restaurant signage, a takeaway food box, a takeaway bag, a staff apron and cap, and the menu. It also sets three rules for photography: the food is the hero, the colours stay warm, and people are shown sharing the meal.
 
 ![A takeaway food box with the logo on a white box with a maroon band](/images/eflames/takeaway-box.webp)
 
@@ -76,4 +76,6 @@ The animated logo at the top of this page is my own motion study and was not par
 
 ## Outcome
 
-The client loved the full identity, from the mascot to the rest of the brand guide. The restaurant has not launched yet. The identity is going onto its packaging and menu first.
+The client loved the full identity, from the mascot to the rest of the brand guide.
+
+The identity is complete, but the restaurant has not launched yet. Packaging and menus are the first places it will be used.
