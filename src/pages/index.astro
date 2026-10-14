@@ -13,8 +13,37 @@ const services = [
   { n: 'S/02', title: 'Frontend development', text: 'Responsive, production-ready frontends in Angular, React and plain HTML/CSS. I work on an enterprise fintech platform day to day.' },
   { n: 'S/03', title: 'Brand identity', text: "Logos, brand guides and visual systems. I've been doing identity work since 2020." },
 ];
+const site = 'https://danielaigbe.github.io';
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${site}/#daniel`,
+    name: 'Daniel Aigbe',
+    alternateName: 'UI_RONIN',
+    jobTitle: 'Product Designer and Frontend Developer',
+    url: `${site}/`,
+    image: `${site}/images/portrait.webp`,
+    address: { '@type': 'PostalAddress', addressLocality: 'Lagos', addressCountry: 'NG' },
+    worksFor: { '@type': 'Organization', name: 'Union Systems Limited' },
+    knowsAbout: ['Product design', 'UX design', 'UI design', 'Frontend development', 'Brand identity', 'Design systems'],
+    sameAs: [
+      'https://www.linkedin.com/in/daniel-aigbe-0723b7243/',
+      'https://www.behance.net/aigbedaniel1',
+      'https://x.com/AIDan1el',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'UI_RONIN',
+    alternateName: 'Daniel Aigbe portfolio',
+    url: `${site}/`,
+    author: { '@id': `${site}/#daniel` },
+  },
+];
 ---
-<Base hideNav>
+<Base hideNav schema={schema}>
   <div class="home">
   <!-- Background glows for the whole page. Each <i> is one glow; move or resize them in the CSS under "Background glows". -->
   <div class="bg-glows" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>

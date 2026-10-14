@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base noindex title="Page not found" description="This page doesn't exist. Head back to the UI_RONIN portfolio by Daniel Aigbe.">
+  <main class="wrap">
+    <span class="kicker">404 — Not found</span>
+    <h1>Lost the path<span class="red">_</span></h1>
+    <p>This page doesn't exist, or it has moved.</p>
+    <div class="actions">
+      <a class="btn" href="/">Back to home</a>
+      <a class="link" href="/work/">See the work</a>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .wrap { min-height: 60vh; padding: 120px var(--gutter); display: flex; flex-direction: column; justify-content: center; gap: 28px; }
+  h1 { font-weight: 700; font-size: clamp(40px, 6.7vw, 96px); line-height: 1.02; }
+  p { font-size: 20px; color: var(--mist); max-width: 460px; }
+  .actions { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
+</style>

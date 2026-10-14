@@ -8,13 +8,26 @@ interface Props {
   description?: string;
   current?: string;
   hideNav?: boolean;
+  image?: string;
+  imageAlt?: string;
+  type?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
 }
 const {
   title,
   description = 'Daniel Aigbe (UI_RONIN) is a product designer and frontend developer in Lagos. He designs and builds digital products, from brand identity to the interface and the code behind it.',
   current = '',
   hideNav = false,
+  image = '/og/home.jpg',
+  imageAlt = 'UI_RONIN: Daniel Aigbe, product designer and frontend developer in Lagos',
+  type = 'website',
+  schema,
+  noindex = false,
 } = Astro.props;
+// Full addresses for search engines and link previews
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const imageUrl = new URL(image, Astro.site).href;
 const base = 'Daniel Aigbe — Product Designer & Frontend Developer | UI_RONIN';
 const fullTitle = title ? `${title} · Daniel Aigbe (UI_RONIN)` : base;
 ---
@@ -25,9 +38,26 @@ const fullTitle = title ? `${title} · Daniel Aigbe (UI_RONIN)` : base;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+    <link rel="sitemap" href="/sitemap.xml" />
+    <meta name="author" content="Daniel Aigbe" />
+    <!-- Link previews (WhatsApp, LinkedIn, X, Slack...) -->
+    <meta property="og:site_name" content="UI_RONIN" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@AIDan1el" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
     <meta name="theme-color" content="#070707" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />

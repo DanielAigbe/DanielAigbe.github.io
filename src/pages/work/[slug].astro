@@ -20,7 +20,26 @@ const meta = [
   ['Tools', d.tools],
 ];
 ---
-<Base title={d.title} description={d.summary} current="Work">
+<Base
+  title={`${d.title} case study`}
+  description={d.summary}
+  current="Work"
+  image={`/og/${entry.id}.jpg`}
+  imageAlt={`${d.title} case study by Daniel Aigbe`}
+  type="article"
+  schema={{
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: d.title,
+    headline: `${d.title} case study`,
+    description: d.summary,
+    url: new URL(`/work/${entry.id}/`, Astro.site).href,
+    image: new URL(`/og/${entry.id}.jpg`, Astro.site).href,
+    dateCreated: d.year,
+    keywords: d.tags.join(', '),
+    creator: { '@type': 'Person', name: 'Daniel Aigbe', alternateName: 'UI_RONIN', url: new URL('/', Astro.site).href },
+  }}
+>
   <header class="head">
     <span class="kicker">P/{String(index).padStart(2, '0')} — Case study</span>
     <h1>{d.title}<span class="red">_</span></h1>
