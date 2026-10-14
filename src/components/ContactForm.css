@@ -8,3 +8,9 @@
 .cf-chip.on { border-color: var(--crimson); background: #1a1210; }
 .cf-send { align-self: flex-start; min-height: 56px; }
 .cf-note { margin: 0; font-size: 15px; color: var(--mist); }
+.cf-send:disabled { opacity: 0.7; cursor: progress; }
+.cf-error { color: var(--washi); }
+.cf-trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.cf-done { justify-content: center; min-height: 360px; }
+.cf-done-title { margin: 0; font: 700 clamp(26px, 3vw, 38px)/1.15 var(--font-display); color: var(--washi); }
+.cf-again { align-self: flex-start; background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }
