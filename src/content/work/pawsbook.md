@@ -19,7 +19,7 @@ cover:
 
 PawsBook is a pet platform from a U.S. company based in Georgia. It puts many things in one place: AI tools for understanding your pet, a vet and clinic finder, pet hotels and grooming, parks and walk paths, a community, adoption and a marketplace, pet-friendly housing, and vaccination tracking. It is for pet owners, but also for breeders, vets, pet hotels and animal-welfare groups.
 
-That is a lot to explain. The client gave me their written content and asked for a website that shows what PawsBook is about, what it can do, and who is behind it.
+That is a lot to explain to a lot of different people. The challenge was a website that makes clear what PawsBook does, who it's for and what visitors can explore, without overwhelming them. The client gave me their written content and asked for a website that shows what PawsBook is about, what it can do, and who is behind it.
 
 ## My role
 
@@ -27,9 +27,9 @@ I built the design system in Tokens Studio, then designed the website in Figma, 
 
 ## Key decisions
 
-- **Gold instead of blue and orange.** The first direction was blue and orange. I moved to gold (#C9A74A), later paired with navy, because it felt warmer and more premium, and suited a lifestyle brand people need to trust with their pets.
-- **A playful font for the brand, calm fonts for reading.** Karen Funny Cartoon gives the name its friendly, pet-like character. Sora and Inter carry the headings and body text so the page stays easy to read.
-- **A few clear actions.** The home page runs from the hero through About, Explore Nearby Services, What Our Community Says and Global Reach. Every section points to the same actions: download the app, or learn more.
+- **Gold instead of blue and orange.** The first direction was blue and orange. I moved to gold (#C9A74A), later paired with navy, because it felt warmer and more premium for a pet lifestyle brand.
+- **A playful font for the brand, calm fonts for reading.** Karen Funny Cartoon gives the name its friendly, pet-like character. Sora and Inter carry the headings and body text, keeping the playful part to the brand and the information easy to read.
+- **A few clear actions.** The home page runs from the hero through About, Explore Nearby Services, What Our Community Says and Global Reach. Two actions keep coming back along the way: download the app, or learn more.
 
 ## The website
 
