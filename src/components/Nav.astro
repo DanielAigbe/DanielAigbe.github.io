@@ -18,7 +18,7 @@ const links = [
       <a href={l.href} class:list={{ on: current === l.label }}>{l.label}</a>
     ))}
   </div>
-  <a class="btn-line cta" href="/contact/">Start a project</a>
+  <a class="btn-line cta" href="/contact/"><span class="cta-long">Start a project</span><span class="cta-short">Contact</span></a>
 
   <!-- Mobile: menu button and full-screen menu -->
   <button class="toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-nav-toggle>
@@ -55,13 +55,12 @@ const links = [
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && nav.classList.contains('open')) { set(false); btn.focus(); } });
     window.matchMedia('(min-width: 821px)').addEventListener('change', (m) => { if (m.matches) set(false); });
 
-    // Keep the nav reachable: once you scroll past it, it sticks to the top of the screen.
-    // It slides away while you scroll down and comes back as soon as you scroll up.
+    // Keep the nav reachable: once you scroll past it, it slides in and stays at the top of the screen,
+    // so the menu and the contact button are always one tap away.
     const spacer = document.createElement('div');
     spacer.setAttribute('data-nav-spacer', '');
     spacer.hidden = true;
     nav.before(spacer);
-    let lastY = window.scrollY;
     let ticking = false;
     const update = () => {
       ticking = false;
@@ -73,15 +72,11 @@ const links = [
         spacer.style.height = h + 'px';
         spacer.hidden = false;
         nav.classList.add('stuck', 'away', 'no-anim');
-        requestAnimationFrame(() => nav.classList.remove('no-anim'));
+        requestAnimationFrame(() => requestAnimationFrame(() => nav.classList.remove('no-anim', 'away')));
       } else if (stuck && y <= start) {
         nav.classList.remove('stuck', 'away');
         spacer.hidden = true;
-      } else if (stuck && !nav.classList.contains('open')) {
-        if (y > lastY + 4) nav.classList.add('away');
-        else if (y < lastY - 4) nav.classList.remove('away');
       }
-      lastY = y;
     };
     window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
     nav.addEventListener('focusin', () => nav.classList.remove('away'));
@@ -128,6 +123,7 @@ const links = [
   .nav.stuck.away { transform: translateY(-100%); }
   .nav.stuck:not(.away) { transform: none; }
   .nav.no-anim { transition: none; }
+  .cta-short { display: none; }
   .brand { display: flex; align-items: center; gap: 14px; position: relative; z-index: 2; }
   .brand img { width: 47px; height: auto; }
   .brand span { font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.1em; }
@@ -181,7 +177,12 @@ const links = [
   @media (max-width: 820px) {
     .nav { padding: 20px var(--edge); }
     .nav.stuck { padding-top: 12px; padding-bottom: 12px; }
-    .links, .cta { display: none; }
+    .links { display: none; }
+    .nav { gap: 10px; }
+    .cta { position: relative; z-index: 2; margin-left: auto; min-height: 44px; padding: 0 16px; font-size: 14px; }
+    .cta-long { display: none; }
+    .cta-short { display: inline; }
+    .open .cta { visibility: hidden; }
     .toggle { display: block; }
   }
   @media (prefers-reduced-motion: reduce) {
