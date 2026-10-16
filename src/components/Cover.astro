@@ -2,16 +2,24 @@
 // One cover slot. `kind` decides what goes inside:
 //   scroll  — a tall page image that scrolls inside a browser frame (needs `image`)
 //   eflames — the animated e-Flames & Flavours logo
+//   video   — a silent looping showcase video (needs `video`, the path without extension, and `poster`)
 //   image   — a plain image (needs `image`)
 //   anything else — a labelled placeholder box
 import EflamesLogo from './EflamesLogo.astro';
-interface Props { kind?: string; image?: string; label?: string; alt?: string; url?: string; tall?: boolean }
-const { kind = 'placeholder', image, label = '', alt = '', url = '', tall = false } = Astro.props;
+interface Props { kind?: string; image?: string; label?: string; alt?: string; url?: string; video?: string; poster?: string; tall?: boolean }
+const { kind = 'placeholder', image, label = '', alt = '', url = '', video, poster, tall = false } = Astro.props;
 ---
 {kind === 'scroll' && image ? (
   <div class:list={['cover', 'browser', { tall }]} data-scrollmock data-cursor>
     <div class="chrome"><i></i><i></i><i></i>{url && <span>{url}</span>}</div>
     <div class="screen"><img src={image} alt={alt} loading="lazy" /></div>
+  </div>
+) : kind === 'video' && video ? (
+  <div class:list={['cover', 'vid', { tall }]}>
+    <video data-autoplay muted loop playsinline preload="none" poster={poster} aria-label={alt}>
+      <source src={`${video}.webm`} type="video/webm" />
+      <source src={`${video}.mp4`} type="video/mp4" />
+    </video>
   </div>
 ) : kind === 'eflames' ? (
   <div class:list={['cover', 'eflames', { tall }]} data-ef><EflamesLogo /></div>
@@ -31,6 +39,8 @@ const { kind = 'placeholder', image, label = '', alt = '', url = '', tall = fals
   }
   .cover.tall { aspect-ratio: 1312 / 760; }
   .img img { width: 100%; height: 100%; object-fit: cover; }
+  .vid { background: #0b1114; }
+  .vid video { width: 100%; height: 100%; object-fit: cover; display: block; }
   .browser { background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; cursor: pointer; }
   .chrome { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); flex: none; }
   .chrome i { width: 10px; height: 10px; border-radius: 50%; background: var(--line-strong); }

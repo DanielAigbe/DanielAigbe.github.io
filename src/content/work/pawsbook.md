@@ -10,9 +10,11 @@ client: PawsBook (U.S.)
 year: "2026"
 tools: Figma, Tokens Studio
 cover:
-  kind: image
+  kind: video
+  video: /videos/pawsbook
+  poster: /videos/pawsbook-poster.jpg
+  alt: Animated walkthrough of the PawsBook website, from the home page to the features and download pages
   image: /images/pawsbook-cover.webp
-  alt: PawsBook landing page shown on a desktop monitor
 ---
 
 ## The problem

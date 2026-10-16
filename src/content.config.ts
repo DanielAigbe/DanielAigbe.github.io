@@ -23,6 +23,8 @@ const work = defineCollection({
       label: z.string().optional(),
       alt: z.string().optional(),
       url: z.string().optional(),
+      video: z.string().optional(),   // e.g. /videos/odara (serves .webm and .mp4)
+      poster: z.string().optional(),
     }),
     draft: z.boolean().default(false), // true = card only, no case study page yet
   }),

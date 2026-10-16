@@ -10,9 +10,11 @@ client: Odara Health (Nigeria)
 year: "2026"
 tools: Figma
 cover:
-  kind: scroll
+  kind: video
+  video: /videos/odara
+  poster: /videos/odara-poster.jpg
+  alt: Animated walkthrough of the ODARA website, from the landing page through the eligibility check
   image: /images/odara-landing.webp
-  alt: ODARA Health landing page, full length
   url: odarahealthfinance.netlify.app
 ---
 

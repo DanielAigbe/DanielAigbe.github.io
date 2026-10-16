@@ -113,3 +113,19 @@ if (parallaxEls.length && !reduce) {
   window.addEventListener('load', measure);
   measure();
 }
+
+// Showcase videos: load and play only while on screen, pause when scrolled away.
+// People who ask for reduced motion see the still poster instead.
+{
+  const vids = document.querySelectorAll('video[data-autoplay]');
+  const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (vids.length && !calm && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        const v = e.target;
+        if (e.isIntersecting) { v.play().catch(() => {}); } else { v.pause(); }
+      }
+    }, { threshold: 0.25 });
+    vids.forEach((v) => io.observe(v));
+  }
+}
