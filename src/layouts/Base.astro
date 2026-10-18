@@ -16,11 +16,11 @@ interface Props {
 }
 const {
   title,
-  description = 'Daniel Aigbe, known as UI Ronin (UI_RONIN), is a product designer and frontend developer in Lagos. He designs and builds digital products, from brand identity to the interface and the code behind it.',
+  description = 'Daniel Aigbe, known as UI Ronin (UI_RONIN), is a design engineer in Lagos: a product designer who also builds the frontend. He designs and builds digital products, from brand identity to the interface and the code behind it.',
   current = '',
   hideNav = false,
   image = '/og/home.jpg',
-  imageAlt = 'UI_RONIN: Daniel Aigbe, product designer and frontend developer in Lagos',
+  imageAlt = 'UI_RONIN: Daniel Aigbe, design engineer in Lagos',
   type = 'website',
   schema,
   noindex = false,
@@ -28,7 +28,7 @@ const {
 // Full addresses for search engines and link previews
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const imageUrl = new URL(image, Astro.site).href;
-const base = 'UI Ronin · Daniel Aigbe — Product Designer & Frontend Developer';
+const base = 'UI Ronin · Daniel Aigbe — Design Engineer';
 const fullTitle = title ? `${title} · Daniel Aigbe (UI_RONIN)` : base;
 ---
 <!doctype html>
